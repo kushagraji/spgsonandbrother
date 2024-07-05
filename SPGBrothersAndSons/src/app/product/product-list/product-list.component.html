@@ -1,0 +1,109 @@
+<app-header></app-header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="filter">
+        <div class="search">
+        <input type="text" placeholder="search" (keyup)="applyFilter($event)"/>
+    </div>
+    <div class="sort">
+        <select class="dropdown" (change)="sortProducts($event)">
+            <option value="priceLowToHigh">priceLowToHigh</option>
+            <option value="priceHighToLow">priceHighToLow</option>
+        </select>
+       
+       
+    </div>
+    </div>
+    
+    <div class="a" fxLayout="row wrap" fxLayoutGap="50px grid">
+        
+        <div class="b" *ngFor="let product of filteredProducts">
+            <mat-card class="product-card" appearance="outlined">
+            
+                <img mat-card-image src="assets/img/{{product.image_url}}" >
+                <mat-card-content>
+                    <mat-card-title>{{product.name}}</mat-card-title>
+                    <mat-card-subtitle>{{product.price | currency : "USD"}}</mat-card-subtitle>
+                </mat-card-content>
+                
+              </mat-card>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="more">
+                <div class="minfo">
+                    <div class="ficon"><i class="fa fa-car" style="font-size:30px;"></i></div>
+                    <div class="fcontent">
+                        <h2>Global Shipping</h2>
+                        <p>We globally shipped to our client</p>
+                    </div>
+                </div>
+                <div class="minfo">
+                    <div  class="ficon"><i class="fa-regular fa-face-smile" style="font-size:30px;"></i></div>
+                    <div class="fcontent">
+                        <h2>Quality Customization</h2>
+                        <p>Quality Customization On All Products</p>
+                    </div>
+                </div>
+                <div class="minfo">
+                    <div  class="ficon"><i class="fa-solid fa-shield-halved" style="font-size:30px;"></i></div>
+                    <div>
+                    <h2>Best Quality Products</h2>
+                    <p>We Stock Some of the Best Brand</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="">About Us</a></li>
+                        <li><a href="">Our Service</a></li>
+                        <li><a href="">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Get Help</h4>
+                   <ul>
+                       <li><a href="">FAQ</a></li>
+                       <li><a href="">Shipping</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Top Category</h4>
+                    <ul>
+                        <li><a href="">Office Utility</a></li>
+                        <li><a href="">Power Bank</a></li>
+                        <li><a href="">Promotional Gifts</a></li>
+                        <li><a href="">USB Pen Drive</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                    <ul>
+                    <a href="#" ><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#" ><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" ><i class="fa-brands fa-instagram"></i></a>
+                    </ul>
+                </div>
+                </div>
+            </div>
+        </div>
+        
+     </footer>
+    
+</body>
+</html>
+
+
+
